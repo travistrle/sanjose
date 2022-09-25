@@ -48,7 +48,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "sanjose:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/sanjose/proxy.conf.json"
       },
       "configurations": {
         "development": {
