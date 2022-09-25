@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@sanjose/features/home": ["libs/features/home/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
