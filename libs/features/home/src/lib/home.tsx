@@ -37,19 +37,6 @@ export function Home(props: HomeProps) {
     { fetchPolicy: 'network-only' }
   );
 
-  // const headers = {
-  //   Authorization: '',
-  // };
-
-  // useEffect(() => {
-  //   const id_token = localStorage.getItem('id_token');
-  //   headers['Authorization'] = `Bearer ${id_token}`;
-  //   fetch('/api/todos', { headers: headers })
-  //     .then((_) => _.json())
-
-  //     .then(setTodos);
-  // }, []);
-
   function addTodo() {
     setTodos([
       ...todos,
@@ -64,14 +51,6 @@ export function Home(props: HomeProps) {
   return (
     <div className={styles['container']}>
       <h1>Welcome to FeaturesHome!</h1>
-
-      {/* <ul>
-        <li><Link to="/">features-home root</Link></li>
-      </ul> */}
-      {/* <Route
-        path="/"
-        element={<div>This is the features-home root route.</div>}
-      /> */}
       <ul>
         {data?.todos?.map((t) => (
           <li className={'todo'} key={t.id}>

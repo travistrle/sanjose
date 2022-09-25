@@ -6,14 +6,18 @@
     "start": "nx serve",
     "start:sanjose": "nx serve sanjose -v",
     "build": "nx build",
-    "test": "nx run-many --target=test --all"
+    "test": "nx run-many --target=test --all",
+    "lint": "nx run-many --target=lint --all"
   },
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "core-js": "^3.6.5",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
     "graphql": "^16.6.0",
     "node-fetch": "^2.6.7",
+    "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "6.4.1",

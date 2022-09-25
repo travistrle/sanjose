@@ -1,7 +1,22 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@nrwl/nx", "@typescript-eslint"],
+  "env": { "node": true },
+  "parserOptions": {
+    "ecmaVersion": 5,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
