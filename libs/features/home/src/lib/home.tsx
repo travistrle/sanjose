@@ -1,26 +1,42 @@
 // import { Route, Link } from 'react-router-dom';
 
 import styles from './home.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import fetch from 'node-fetch';
 
 interface Todo {
-  title: string;
+  id: number;
+  task: string;
 }
 /* eslint-disable-next-line */
 export interface HomeProps {}
 
 export function Home(props: HomeProps) {
   const [todos, setTodos] = useState<Todo[]>([
-    { title: 'Todo 1' },
-    { title: 'Todo 2' },
+    { id: 1, task: 'Todo 1' },
+    { id: 2, task: 'Todo 2' },
   ]);
+
+  const headers = {
+    Authorization: '',
+  };
+
+  useEffect(() => {
+    const id_token = localStorage.getItem('id_token');
+    headers['Authorization'] = `Bearer ${id_token}`;
+    fetch('/api/todos', { headers: headers })
+      .then((_) => _.json())
+
+      .then(setTodos);
+  }, []);
 
   function addTodo() {
     setTodos([
       ...todos,
 
       {
-        title: `New todo ${Math.floor(Math.random() * 1000)}`,
+        id: Math.random() + 3,
+        task: `New todo ${Math.floor(Math.random() * 1000)}`,
       },
     ]);
   }
@@ -38,7 +54,9 @@ export function Home(props: HomeProps) {
       /> */}
       <ul>
         {todos.map((t) => (
-          <li className={'todo'}>{t.title}</li>
+          <li className={'todo'} key={t.id}>
+            {t.task}
+          </li>
         ))}
       </ul>
       <button id={'add-todo'} onClick={addTodo}>
