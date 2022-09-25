@@ -2,12 +2,26 @@
 
 import styles from './home.module.scss';
 import { useEffect, useState } from 'react';
-import fetch from 'node-fetch';
+import { gql, useQuery } from '@apollo/client';
+
+const todoQuery = gql`
+  query {
+    todos {
+      id
+      task
+    }
+  }
+`;
 
 interface Todo {
   id: number;
   task: string;
 }
+
+interface TodoData {
+  todos: Todo[];
+}
+
 /* eslint-disable-next-line */
 export interface HomeProps {}
 
@@ -17,18 +31,24 @@ export function Home(props: HomeProps) {
     { id: 2, task: 'Todo 2' },
   ]);
 
-  const headers = {
-    Authorization: '',
-  };
+  const { client, loading, data } = useQuery<TodoData>(
+    todoQuery,
 
-  useEffect(() => {
-    const id_token = localStorage.getItem('id_token');
-    headers['Authorization'] = `Bearer ${id_token}`;
-    fetch('/api/todos', { headers: headers })
-      .then((_) => _.json())
+    { fetchPolicy: 'network-only' }
+  );
 
-      .then(setTodos);
-  }, []);
+  // const headers = {
+  //   Authorization: '',
+  // };
+
+  // useEffect(() => {
+  //   const id_token = localStorage.getItem('id_token');
+  //   headers['Authorization'] = `Bearer ${id_token}`;
+  //   fetch('/api/todos', { headers: headers })
+  //     .then((_) => _.json())
+
+  //     .then(setTodos);
+  // }, []);
 
   function addTodo() {
     setTodos([
@@ -53,7 +73,7 @@ export function Home(props: HomeProps) {
         element={<div>This is the features-home root route.</div>}
       /> */}
       <ul>
-        {todos.map((t) => (
+        {data?.todos?.map((t) => (
           <li className={'todo'} key={t.id}>
             {t.task}
           </li>

@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@sanjose/data-access/graphql-provider": [
+        "libs/data-access/graphql-provider/src/index.ts"
+      ],
       "@sanjose/features/home": ["libs/features/home/src/index.ts"]
     }
   },

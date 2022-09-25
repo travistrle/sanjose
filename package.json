@@ -6,11 +6,13 @@
     "start": "nx serve",
     "start:sanjose": "nx serve sanjose -v",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx run-many --target=test --all"
   },
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "core-js": "^3.6.5",
+    "graphql": "^16.6.0",
     "node-fetch": "^2.6.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
