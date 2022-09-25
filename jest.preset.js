@@ -1,7 +1,16 @@
 const nxPreset = require('@nrwl/jest/preset').default;
 
+const esModules = [
+  'single-spa-css',
+  'lit',
+  '@lit',
+  '@open-wc',
+  'node:http'
+].join('|');
+
 module.exports = { 
     ...nxPreset,
+    transformIgnorePatterns: [`node_modules/(?!.*(${esModules}))`],
     transform: {
         '^(?!.*\\.(js|jsx|ts|tsx|css|json|scss)$)': '@nrwl/react/plugins/jest',
         '^.+\\.[tj]sx?$': 'ts-jest',
