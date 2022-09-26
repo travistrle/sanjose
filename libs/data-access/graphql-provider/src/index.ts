@@ -1,1 +1,3 @@
-export * from './lib/graphql-provider';
+import GraphqlProvider from './lib/graphql-provider';
+
+export default GraphqlProvider;
