@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import styles from './home.module.scss';
 

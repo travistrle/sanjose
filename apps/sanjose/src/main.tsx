@@ -5,9 +5,8 @@ import {
   InMemoryCache,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-
 import App from './app/app';
 
 const httpLink = createHttpLink({
