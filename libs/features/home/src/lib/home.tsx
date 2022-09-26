@@ -47,7 +47,7 @@ export function Home(props: HomeProps) {
   }
 
   return (
-    <div className={styles['container']}>
+    <div className={styles.container}>
       <h1>Welcome to FeaturesHome!</h1>
       <ul>
         {data?.todos?.map((t) => (
@@ -56,7 +56,7 @@ export function Home(props: HomeProps) {
           </li>
         ))}
       </ul>
-      <button id="add-todo" onClick={addTodo}>
+      <button type="button" id="add-todo" onClick={addTodo}>
         Add Todo
       </button>
     </div>
