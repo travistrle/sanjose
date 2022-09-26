@@ -52,6 +52,14 @@
         "jest": true
       },
       "rules": {}
+    },
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "max-len": ["error", { "code": 120 }],
+        "quotes": ["error", "single"],
+        "curly": ["error", "all"]
+      }
     }
   ]
 }
