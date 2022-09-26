@@ -26,7 +26,7 @@ export interface HomeProps {}
 export function Home(props: HomeProps) {
   const [todos, setTodos] = useState<Todo[]>([
     { id: 1, task: 'Todo 1' },
-    { id: 2, task: 'Todo 2' },
+    { id: 2, task: 'Todo 2' }
   ]);
 
   const { client, loading, data } = useQuery<TodoData>(
@@ -41,8 +41,8 @@ export function Home(props: HomeProps) {
 
       {
         id: Math.random() + 3,
-        task: `New todo ${Math.floor(Math.random() * 1000)}`,
-      },
+        task: `New todo ${Math.floor(Math.random() * 1000)}`
+      }
     ]);
   }
 
