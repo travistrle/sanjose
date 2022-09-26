@@ -10,7 +10,7 @@
     "airbnb-typescript"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@nrwl/nx", "@typescript-eslint"],
+  "plugins": ["@nrwl/nx", "@typescript-eslint", "prettier"],
   "env": { "node": true },
   "parserOptions": {
     "ecmaVersion": 5,
