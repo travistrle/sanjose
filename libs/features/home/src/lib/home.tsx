@@ -1,8 +1,7 @@
-// import { Route, Link } from 'react-router-dom';
-
-import styles from './home.module.scss';
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
+import styles from './home.module.scss';
 
 const todoQuery = gql`
   query {
@@ -53,12 +52,12 @@ export function Home(props: HomeProps) {
       <h1>Welcome to FeaturesHome!</h1>
       <ul>
         {data?.todos?.map((t) => (
-          <li className={'todo'} key={t.id}>
+          <li className="todo" key={t.id}>
             {t.task}
           </li>
         ))}
       </ul>
-      <button id={'add-todo'} onClick={addTodo}>
+      <button id="add-todo" onClick={addTodo}>
         Add Todo
       </button>
     </div>

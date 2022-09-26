@@ -1,3 +1,3 @@
-export function GraphqlProvider(): string {
+export default function GraphqlProvider(): string {
   return 'data-access-graphql-provider';
 }

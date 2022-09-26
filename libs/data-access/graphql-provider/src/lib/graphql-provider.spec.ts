@@ -1,4 +1,4 @@
-import { GraphqlProvider } from './graphql-provider';
+import GraphqlProvider from './graphql-provider';
 
 describe('dataAccessGraphqlProvider', () => {
   it('should work', () => {
